@@ -1013,7 +1013,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     }
   }
 
-  inner class MyWebViewClient : WebViewClient() {
+  open inner class MyWebViewClient : WebViewClient() {
     override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
       onPageStarted(this@FinestWebViewActivity, key, url)
       if (!url.contains("docs.google.com") && url.endsWith(".pdf")) {
