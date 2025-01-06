@@ -59,169 +59,169 @@ import com.thefinestartist.finestwebview.views.ShadowLayout
 /**
  * Created by Leonardo on 11/14/15.
  */
-class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
+open class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
 
-  protected var key = 0
+  protected open var key = 0
 
-  protected var rtl = false
+  protected open var rtl = false
 
-  protected var statusBarColor = 0
+  protected open var statusBarColor = 0
 
-  protected var toolbarColor = 0
-  protected var toolbarScrollFlags = 0
+  protected open var toolbarColor = 0
+  protected open var toolbarScrollFlags = 0
 
-  protected var iconDefaultColor = 0
-  protected var iconDisabledColor = 0
-  protected var iconPressedColor = 0
-  protected var iconSelector = 0
+  protected open var iconDefaultColor = 0
+  protected open var iconDisabledColor = 0
+  protected open var iconPressedColor = 0
+  protected open var iconSelector = 0
 
-  protected var showIconClose = false
-  protected var disableIconClose = false
-  protected var showIconBack = false
-  protected var disableIconBack = false
-  protected var showIconForward = false
-  protected var disableIconForward = false
-  protected var showIconMenu = false
-  protected var disableIconMenu = false
+  protected open var showIconClose = false
+  protected open var disableIconClose = false
+  protected open var showIconBack = false
+  protected open var disableIconBack = false
+  protected open var showIconForward = false
+  protected open var disableIconForward = false
+  protected open var showIconMenu = false
+  protected open var disableIconMenu = false
 
-  protected var showSwipeRefreshLayout = false
-  protected var swipeRefreshColor = 0
-  protected var swipeRefreshColors: IntArray? = null
+  protected open var showSwipeRefreshLayout = false
+  protected open var swipeRefreshColor = 0
+  protected open var swipeRefreshColors: IntArray? = null
 
-  protected var showDivider = false
-  protected var gradientDivider = false
-  protected var dividerColor = 0
-  protected var dividerHeight = 0f
+  protected open var showDivider = false
+  protected open var gradientDivider = false
+  protected open var dividerColor = 0
+  protected open var dividerHeight = 0f
 
-  protected var showProgressBar = false
-  protected var progressBarColor = 0
-  protected var progressBarHeight = 0f
-  protected var progressBarPosition: ProgressBarPosition? = null
+  protected open var showProgressBar = false
+  protected open var progressBarColor = 0
+  protected open var progressBarHeight = 0f
+  protected open var progressBarPosition: ProgressBarPosition? = null
 
-  protected var titleDefault: String? = null
-  protected var updateTitleFromHtml = false
-  protected var titleSize = 0f
-  protected var titleFont: String? = null
-  protected var finestWebViewTitleColor = 0
+  protected open var titleDefault: String? = null
+  protected open var updateTitleFromHtml = false
+  protected open var titleSize = 0f
+  protected open var titleFont: String? = null
+  protected open var finestWebViewTitleColor = 0
 
-  protected var showUrl = false
-  protected var urlSize = 0f
-  protected var urlFont: String? = null
-  protected var urlColor = 0
+  protected open var showUrl = false
+  protected open var urlSize = 0f
+  protected open var urlFont: String? = null
+  protected open var urlColor = 0
 
-  protected var menuColor = 0
-  protected var menuDropShadowColor = 0
-  protected var menuDropShadowSize = 0f
-  protected var menuSelector = 0
+  protected open var menuColor = 0
+  protected open var menuDropShadowColor = 0
+  protected open var menuDropShadowSize = 0f
+  protected open var menuSelector = 0
 
-  protected var menuTextSize = 0f
-  protected var menuTextFont: String? = null
-  protected var menuTextColor = 0
+  protected open var menuTextSize = 0f
+  protected open var menuTextFont: String? = null
+  protected open var menuTextColor = 0
 
-  protected var menuTextGravity = 0
-  protected var menuTextPaddingLeft = 0f
-  protected var menuTextPaddingRight = 0f
+  protected open var menuTextGravity = 0
+  protected open var menuTextPaddingLeft = 0f
+  protected open var menuTextPaddingRight = 0f
 
-  protected var showMenuRefresh = false
-  protected var stringResRefresh = 0
-  protected var showMenuFind = false
-  protected var stringResFind = 0
-  protected var showMenuShareVia = false
-  protected var stringResShareVia = 0
-  protected var showMenuCopyLink = false
-  protected var stringResCopyLink = 0
-  protected var showMenuOpenWith = false
-  protected var stringResOpenWith = 0
+  protected open var showMenuRefresh = false
+  protected open var stringResRefresh = 0
+  protected open var showMenuFind = false
+  protected open var stringResFind = 0
+  protected open var showMenuShareVia = false
+  protected open var stringResShareVia = 0
+  protected open var showMenuCopyLink = false
+  protected open var stringResCopyLink = 0
+  protected open var showMenuOpenWith = false
+  protected open var stringResOpenWith = 0
 
-  protected var animationCloseEnter = 0
-  protected var animationCloseExit = 0
+  protected open var animationCloseEnter = 0
+  protected open var animationCloseExit = 0
 
-  protected var backPressToClose = false
-  protected var stringResCopiedToClipboard = 0
+  protected open var backPressToClose = false
+  protected open var stringResCopiedToClipboard = 0
 
-  protected var webViewSupportZoom: Boolean? = null
-  protected var webViewMediaPlaybackRequiresUserGesture: Boolean? = null
-  protected var webViewBuiltInZoomControls: Boolean? = null
-  protected var webViewDisplayZoomControls: Boolean? = null
-  protected var webViewAllowFileAccess: Boolean? = null
-  protected var webViewAllowContentAccess: Boolean? = null
-  protected var webViewLoadWithOverviewMode: Boolean? = null
-  protected var webViewSaveFormData: Boolean? = null
-  protected var webViewTextZoom: Int? = null
-  protected var webViewUseWideViewPort: Boolean? = null
-  protected var webViewSupportMultipleWindows: Boolean? = null
-  protected var webViewLayoutAlgorithm: LayoutAlgorithm? = null
-  protected var webViewStandardFontFamily: String? = null
-  protected var webViewFixedFontFamily: String? = null
-  protected var webViewSansSerifFontFamily: String? = null
-  protected var webViewSerifFontFamily: String? = null
-  protected var webViewCursiveFontFamily: String? = null
-  protected var webViewFantasyFontFamily: String? = null
-  protected var webViewMinimumFontSize: Int? = null
-  protected var webViewMinimumLogicalFontSize: Int? = null
-  protected var webViewDefaultFontSize: Int? = null
-  protected var webViewDefaultFixedFontSize: Int? = null
-  protected var webViewLoadsImagesAutomatically: Boolean? = null
-  protected var webViewBlockNetworkImage: Boolean? = null
-  protected var webViewBlockNetworkLoads: Boolean? = null
-  protected var webViewJavaScriptEnabled: Boolean? = null
-  protected var webViewAllowUniversalAccessFromFileURLs: Boolean? = null
-  protected var webViewAllowFileAccessFromFileURLs: Boolean? = null
-  protected var webViewGeolocationDatabasePath: String? = null
-  protected var webViewAppCacheEnabled: Boolean? = null
-  protected var webViewAppCachePath: String? = null
-  protected var webViewDatabaseEnabled: Boolean? = null
-  protected var webViewDomStorageEnabled: Boolean? = null
-  protected var webViewGeolocationEnabled: Boolean? = null
-  protected var webViewJavaScriptCanOpenWindowsAutomatically: Boolean? = null
-  protected var webViewDefaultTextEncodingName: String? = null
-  protected var webViewUserAgentString: String? = null
-  protected var webViewNeedInitialFocus: Boolean? = null
-  protected var webViewCacheMode: Int? = null
-  protected var webViewMixedContentMode: Int? = null
-  protected var webViewOffscreenPreRaster: Boolean? = null
+  protected open var webViewSupportZoom: Boolean? = null
+  protected open var webViewMediaPlaybackRequiresUserGesture: Boolean? = null
+  protected open var webViewBuiltInZoomControls: Boolean? = null
+  protected open var webViewDisplayZoomControls: Boolean? = null
+  protected open var webViewAllowFileAccess: Boolean? = null
+  protected open var webViewAllowContentAccess: Boolean? = null
+  protected open var webViewLoadWithOverviewMode: Boolean? = null
+  protected open var webViewSaveFormData: Boolean? = null
+  protected open var webViewTextZoom: Int? = null
+  protected open var webViewUseWideViewPort: Boolean? = null
+  protected open var webViewSupportMultipleWindows: Boolean? = null
+  protected open var webViewLayoutAlgorithm: LayoutAlgorithm? = null
+  protected open var webViewStandardFontFamily: String? = null
+  protected open var webViewFixedFontFamily: String? = null
+  protected open var webViewSansSerifFontFamily: String? = null
+  protected open var webViewSerifFontFamily: String? = null
+  protected open var webViewCursiveFontFamily: String? = null
+  protected open var webViewFantasyFontFamily: String? = null
+  protected open var webViewMinimumFontSize: Int? = null
+  protected open var webViewMinimumLogicalFontSize: Int? = null
+  protected open var webViewDefaultFontSize: Int? = null
+  protected open var webViewDefaultFixedFontSize: Int? = null
+  protected open var webViewLoadsImagesAutomatically: Boolean? = null
+  protected open var webViewBlockNetworkImage: Boolean? = null
+  protected open var webViewBlockNetworkLoads: Boolean? = null
+  protected open var webViewJavaScriptEnabled: Boolean? = null
+  protected open var webViewAllowUniversalAccessFromFileURLs: Boolean? = null
+  protected open var webViewAllowFileAccessFromFileURLs: Boolean? = null
+  protected open var webViewGeolocationDatabasePath: String? = null
+  protected open var webViewAppCacheEnabled: Boolean? = null
+  protected open var webViewAppCachePath: String? = null
+  protected open var webViewDatabaseEnabled: Boolean? = null
+  protected open var webViewDomStorageEnabled: Boolean? = null
+  protected open var webViewGeolocationEnabled: Boolean? = null
+  protected open var webViewJavaScriptCanOpenWindowsAutomatically: Boolean? = null
+  protected open var webViewDefaultTextEncodingName: String? = null
+  protected open var webViewUserAgentString: String? = null
+  protected open var webViewNeedInitialFocus: Boolean? = null
+  protected open var webViewCacheMode: Int? = null
+  protected open var webViewMixedContentMode: Int? = null
+  protected open var webViewOffscreenPreRaster: Boolean? = null
 
-  protected var injectJavaScript: String? = null
+  protected open var injectJavaScript: String? = null
 
-  protected var mimeType: String? = null
-  protected var encoding: String? = null
-  protected var data: String? = null
-  protected var url: String? = null
-  protected var coordinatorLayout: CoordinatorLayout? = null
-  protected var appBar: AppBarLayout? = null
-  protected var toolbar: Toolbar? = null
-  protected var toolbarLayout: RelativeLayout? = null
-  protected var title: TextView? = null
-  protected var urlTv: TextView? = null
-  protected var close: AppCompatImageButton? = null
-  protected var back: AppCompatImageButton? = null
-  protected var forward: AppCompatImageButton? = null
-  protected var more: AppCompatImageButton? = null
-  protected var swipeRefreshLayout: SwipeRefreshLayout? = null
-  protected var webView: WebView? = null
-  protected var gradient: View? = null
-  protected var divider: View? = null
-  protected var progressBar: ProgressBar? = null
-  protected var menuLayout: RelativeLayout? = null
-  protected var shadowLayout: ShadowLayout? = null
-  protected var menuBackground: LinearLayout? = null
-  protected var menuRefresh: LinearLayout? = null
-  protected var menuRefreshTv: TextView? = null
-  protected var menuFind: LinearLayout? = null
-  protected var menuFindTv: TextView? = null
-  protected var menuShareVia: LinearLayout? = null
-  protected var menuShareViaTv: TextView? = null
-  protected var menuCopyLink: LinearLayout? = null
-  protected var menuCopyLinkTv: TextView? = null
-  protected var menuOpenWith: LinearLayout? = null
-  protected var menuOpenWithTv: TextView? = null
-  protected var webLayout: FrameLayout? = null
+  protected open var mimeType: String? = null
+  protected open var encoding: String? = null
+  protected open var data: String? = null
+  protected open var url: String? = null
+  protected open var coordinatorLayout: CoordinatorLayout? = null
+  protected open var appBar: AppBarLayout? = null
+  protected open var toolbar: Toolbar? = null
+  protected open var toolbarLayout: RelativeLayout? = null
+  protected open var title: TextView? = null
+  protected open var urlTv: TextView? = null
+  protected open var close: AppCompatImageButton? = null
+  protected open var back: AppCompatImageButton? = null
+  protected open var forward: AppCompatImageButton? = null
+  protected open var more: AppCompatImageButton? = null
+  protected open var swipeRefreshLayout: SwipeRefreshLayout? = null
+  protected open var webView: WebView? = null
+  protected open var gradient: View? = null
+  protected open var divider: View? = null
+  protected open var progressBar: ProgressBar? = null
+  protected open var menuLayout: RelativeLayout? = null
+  protected open var shadowLayout: ShadowLayout? = null
+  protected open var menuBackground: LinearLayout? = null
+  protected open var menuRefresh: LinearLayout? = null
+  protected open var menuRefreshTv: TextView? = null
+  protected open var menuFind: LinearLayout? = null
+  protected open var menuFindTv: TextView? = null
+  protected open var menuShareVia: LinearLayout? = null
+  protected open var menuShareViaTv: TextView? = null
+  protected open var menuCopyLink: LinearLayout? = null
+  protected open var menuCopyLinkTv: TextView? = null
+  protected open var menuOpenWith: LinearLayout? = null
+  protected open var menuOpenWithTv: TextView? = null
+  protected open var webLayout: FrameLayout? = null
 
   var downloadListener = DownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
     onDownloadStart(this@FinestWebViewActivity, key, url, userAgent, contentDisposition, mimetype, contentLength)
   }
 
-  protected fun initializeOptions() {
+  protected open fun   initializeOptions() {
     val intent = intent ?: return
     val finestWebView = intent.getSerializableExtra("FinestWebView") as FinestWebView?
 
@@ -354,7 +354,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     url = finestWebView.url
   }
 
-  protected fun bindViews() {
+  protected open fun  bindViews() {
     coordinatorLayout = findViewById<View>(R.id.coordinatorLayout) as CoordinatorLayout
     appBar = findViewById<View>(R.id.appBar) as AppBarLayout
     toolbar = findViewById<View>(R.id.toolbar) as Toolbar
@@ -391,7 +391,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     webLayout!!.addView(webView)
   }
 
-  protected fun layoutViews() {
+  protected open fun  layoutViews() {
     setSupportActionBar(toolbar)
     run { // AppBar
       var toolbarHeight = resources.getDimension(R.dimen.toolbarHeight)
@@ -454,7 +454,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
   }
 
   @SuppressLint("SetJavaScriptEnabled")
-  protected fun initializeViews() {
+  protected open fun   initializeViews() {
     setSupportActionBar(toolbar)
     run { // StatusBar
       if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
@@ -759,7 +759,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
       getWidth(this) - dpToPx(this, 52)
     }
 
-  protected fun updateIcon(icon: ImageButton?, @DrawableRes drawableRes: Int) {
+  protected open fun  updateIcon(icon: ImageButton?, @DrawableRes drawableRes: Int) {
     val states = StateListDrawable()
     run {
       val bitmap = getColoredBitmap(this, drawableRes, iconPressedColor)
@@ -883,7 +883,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     }
   }
 
-  protected fun updateChildTextView(viewGroup: ViewGroup?) {
+  protected open fun  updateChildTextView(viewGroup: ViewGroup?) {
     if (viewGroup == null || viewGroup.childCount == 0) {
       return
     }
@@ -902,13 +902,13 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     }
   }
 
-  protected fun showMenu() {
+  protected open fun  showMenu() {
     menuLayout!!.visibility = View.VISIBLE
     val popupAnim = AnimationUtils.loadAnimation(this, R.anim.popup_flyout_show)
     shadowLayout!!.startAnimation(popupAnim)
   }
 
-  protected fun hideMenu() {
+  protected open fun  hideMenu() {
     val popupAnim = AnimationUtils.loadAnimation(this, R.anim.popup_flyout_hide)
     shadowLayout!!.startAnimation(popupAnim)
     popupAnim.setAnimationListener(object : AnimationListener {
@@ -921,7 +921,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     })
   }
 
-  protected fun exitActivity() {
+  protected open fun  exitActivity() {
     super.onBackPressed()
     overridePendingTransition(animationCloseEnter, animationCloseExit)
   }
@@ -943,7 +943,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     menuLayout?.translationY = verticalOffset.toFloat().coerceAtLeast(-resources.getDimension(R.dimen.defaultMenuLayoutMargin))
   }
 
-  protected fun requestCenterLayout() {
+  protected open fun  requestCenterLayout() {
     val maxWidth: Int
     maxWidth = if (webView!!.canGoBack() || webView!!.canGoForward()) {
       getWidth(this) - dpToPx(this, 48) * 4
@@ -986,7 +986,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
                           }, ViewConfiguration.getZoomControlsTimeout() + 1000L)
   }
 
-  inner class MyWebChromeClient : WebChromeClient() {
+  open inner class MyWebChromeClient : WebChromeClient() {
     override fun onProgressChanged(view: WebView, progress: Int) {
       var progress = progress
       onProgressChanged(this@FinestWebViewActivity, key, progress)
@@ -1013,7 +1013,7 @@ class FinestWebViewActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedL
     }
   }
 
-  inner class MyWebViewClient : WebViewClient() {
+  open inner class MyWebViewClient : WebViewClient() {
     override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
       onPageStarted(this@FinestWebViewActivity, key, url)
       if (!url.contains("docs.google.com") && url.endsWith(".pdf")) {
